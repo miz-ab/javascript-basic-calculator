@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+<title>Basic Calculator</title>
+</head>
+<body>
+<center><br>
+<h1><b><font color="white" style="font-size:70">JavaScript Calculator</font></b></h1>
+<hr size=20 color = "black">
+<div style="width:261px; background:FFF8DC">
+<form name="calculator">
+<input name="display" id="disp" placeholder="0" style="width:254px;height:60px;text-align:right;font-size:30px;border-radius:8px;margin:3px">
+<br>
+<input type="button" value="7" onClick="btnseven()"  style="width:60px;height:60px;font-size:30;border-radius:8px;margin:3px">
+<input type="button" value="8" onClick="btneight()" style="width:60px;height:60px;font-size:30;border-radius:8px;">
+<input type="button" value="9" onClick="btnnine()" style="width:60px;height:60px;font-size:30;border-radius:8px;">
+<input type="button" value="+" onClick="btnpl()" style="width:60px;height:60px;font-size:30;border-radius:8px;">
+<br>
+<input type="button" value="4" onClick="btnfour()" style="width:60px;height:60px;font-size:30;border-radius:8px;margin:3px">
+<input type="button" value="5" onClick="btnfive()" style="width:60px;height:60px;font-size:30;border-radius:8px;">
+<input type="button" value="6" onClick="btnsix()" style="width:60px;height:60px;font-size:30;border-radius:8px;">
+<input type="button" value="-" onClick="btnsub()" style="width:60px;height:60px;font-size:30;border-radius:8px;">
+<br>
+<input type="button" value="1" onClick="btnone()" style="width:60px;height:60px;font-size:30;border-radius:8px;margin:3px">
+<input type="button" value="2" onClick="btntwo()" style="width:60px;height:60px;font-size:30;border-radius:8px;">
+<input type="button" value="3" onClick="btnthree()" style="width:60px;height:60px;font-size:30;border-radius:8px;">
+<input type="button" value="*" onClick="btnproduct()" style="width:60px;height:60px;font-size:30;border-radius:8px;">
+<br>
+<input type="button" value="0" onClick="btnzero()"style="width:60px;height:60px;font-size:30;border-radius:8px;margin:3px">
+<input type="button" value="%" onClick="btnmod()" style="width:60px;height:60px;font-size:30;border-radius:8px;">
+<input type="button" value="."  onClick="btnp()" style="width:60px;height:60px;font-size:30;border-radius:8px;">
+<input type="button" value="/"  onClick="btndivide()" style="width:60px;height:60px;font-size:30;border-radius:8px;">
+<br>
+<input type="button" value="=" onClick="btnequal()" style="width:60px;height:60px;font-size:30;border-radius:8px;margin:3px">
+<input type="button" value="C" onClick="btnclear()" style="width:60px;height:60px;font-size:30;border-radius:8px;">
+<input type="button" value="&larr;" onClick="btnBS()" style="width:60px;height:60px;font-size:30;border-radius:8px;">
+<input type="button" value="&radic;" onClick="btnRadical()" style="width:60px;height:60px;font-size:30;border-radius:8px;">
+</form>
+</div>
+<script>
+var val1 , val2,valint;
+//btn btn plus pressed 
+function btnpl(){
+	val1 = document.calculator.display.value;
+	val2 = val1.charAt(val1.length -1);
+	if(val1.length == 0){
+
+	}
+
+	else if((val2 == '+') || (val2 == '-') || (val2 == '*') || (val2 == '/') || (val2 == '.') || (val2 == "") || (val2 == '%')){
+	var indexval = val1.substring(0,val1.length-1);
+	valint = document.getElementById('disp');
+	valint.value = indexval +="+";
+	}else{
+	document.calculator.display.value +="+";
+	document.calculator.display.style.textAlign="right";
+}
+	
+}
+//btn substract pressed
+function btnsub(){
+	val1 = document.calculator.display.value;
+	val2 = val1.charAt(val1.length -1);
+
+	if(val1.length == 0){
+
+	}
+
+	else if((val2 == '+') || (val2 == '-') || (val2 == '*') || (val2 == '/') || (val2 == '.') || (val2 == '%')){
+	var indexval = val1.substring(0,val1.length-1);
+	valint = document.getElementById('disp');
+	valint.value = indexval +="-";
+	}else{
+	document.calculator.display.value +="-";
+	document.calculator.display.style.textAlign="right";
+}
+}
+//btn multiplay pressed 
+function btnproduct(){
+		val1 = document.calculator.display.value;
+		val2 = val1.charAt(val1.length - 1);
+
+		if(val1.length == 0){
+
+		}
+
+	else if((val2 == '+') || (val2 == '-') || (val2 == '*') || (val2 == '/') || (val2 == '.') || (val2 == '%') || (val2 == "")){
+    var indexval = val1.substring(0,val1.length-1);
+	valint = document.getElementById('disp');
+	valint.value = indexval +="*";
+		}else{
+	document.calculator.display.value +="*";
+	document.calculator.display.style.textAlign="right";
+}
+}
+//btn divide pressed
+function btndivide(){
+	   val1 = document.calculator.display.value;
+		val2 = val1.charAt(val1.length - 1);
+		if(val1.length == 0){
+
+		}
+	else if((val2 == '+') || (val2 == '-') || (val2 == '*') || (val2 == '/') || (val2 == '.') || (val2 == '%') || (val2 == "")){
+	var indexval = val1.substring(0,val1.length-1);
+	valint = document.getElementById('disp');
+	valint.value = indexval +="/";
+		}else{
+	document.calculator.display.value +="/";
+	document.calculator.display.style.textAlign="right";
+}
+}
+//btn clear pressed 
+function btnclear(){
+	document.calculator.display.value ="";
+	document.calculator.display.style.textAlign="right";
+}
+//btn moduless pressed 
+function btnmod(){
+	    val1 = document.calculator.display.value;
+		val2 = val1.charAt(val1.length - 1);
+		if(val1.length  == 0){
+
+		}
+	else if((val2 == '+') || (val2 == '-') || (val2 == '*') || (val2 == '/') || (val2 == '.') || (val2 == '%')){
+    var indexval = val1.substring(0,val1.length-1);
+	valint = document.getElementById('disp');
+	valint.value = indexval +="%";
+		}else{
+	document.calculator.display.value +="%";
+	document.calculator.display.style.textAlign="right";
+}
+}
+//btn point pressed 
+function btnp(){
+	val1 = document.calculator.display.value;
+	val2 = val1.charAt(val1.length-1);
+	if((val2 == '+') || (val2 == '-') || (val2 == '*') || (val2 == '/') || (val2 == '.') || (val2 == '%') || (val2 == "")){
+
+	}else{
+		var coount = 0;
+		for(var i = 0; i < val1.length-1;i++){
+			if(val1.charAt(i) == '.'){
+				coount++;
+			}
+		}
+		if (coount > 0) {
+
+		}else{
+			document.calculator.display.value +=".";
+	        document.calculator.display.style.textAlign="right";
+		}
+	}
+	
+}
+
+function btnzero(){
+	val1 = document.calculator.display.value;
+	
+	if((val1.charAt(val1.length-1) == '0') && (val1.length < 2)){
+		
+	}
+	else{
+		document.calculator.display.value +="0";
+		document.calculator.display.style.textAlign="right";
+	}
+}
+function btnone(){
+	val1 = document.calculator.display.value;
+	if(val1.charAt(val1.length-1) == '0' && ((val1.length) < 2) || (val1 == 'NaN') ) {
+		document.calculator.display.value = "1";
+		document.calculator.display.style.textAlign="right";
+	}
+	else{
+		document.calculator.display.value +="1";
+		document.calculator.display.style.textAlign="right";
+	}
+}
+function btntwo(){
+	val1 = document.calculator.display.value;
+	if(val1.charAt(val1.length-1) == '0' && (val1.length) < 2){
+		document.calculator.display.value = "2";
+		document.calculator.display.style.textAlign="right";
+	}
+	else{
+		document.calculator.display.value +="2";
+		document.calculator.display.style.textAlign="right";
+	}
+}
+function btnthree(){
+	val1 = document.calculator.display.value;
+	if(val1.charAt(val1.length-1) == '0' && (val1.length) < 2){
+		document.calculator.display.value = "3";
+		document.calculator.display.style.textAlign="right";
+	}
+	else{
+		document.calculator.display.value +="3";
+		document.calculator.display.style.textAlign="right";
+	}
+}
+function btnfour(){
+	val1 = document.calculator.display.value;
+	if(val1.charAt(val1.length-1) == '0' && (val1.length) < 2){
+		document.calculator.display.value = "4";
+		document.calculator.display.style.textAlign="right";
+	}
+	else{
+		document.calculator.display.value +="4";
+		document.calculator.display.style.textAlign="right";
+	}
+}
+function btnfive(){
+	val1 = document.calculator.display.value;
+	if(val1.charAt(val1.length-1) == '0' && (val1.length) < 2){
+		document.calculator.display.value = "5";
+		document.calculator.display.style.textAlign="right";
+	}
+	else{
+		document.calculator.display.value +="5";
+		document.calculator.display.style.textAlign="right";
+	}
+}
+function btnsix(){
+	val1 = document.calculator.display.value;
+	if(val1.charAt(val1.length-1) == '0' && (val1.length) < 2){
+		document.calculator.display.value = "6";
+		document.calculator.display.style.textAlign="right";
+	}
+	else{
+		document.calculator.display.value +="6";
+		document.calculator.display.style.textAlign="right";
+	}
+}
+function btnseven(){
+	val1 = document.calculator.display.value;
+	if(val1.charAt(val1.length-1) == '0' && (val1.length) < 2){
+		document.calculator.display.value = "7";
+		document.calculator.display.style.textAlign="right";
+	}
+	else{
+		document.calculator.display.value +="7";
+		document.calculator.display.style.textAlign="right";
+	}
+}
+function btneight(){
+	val1 = document.calculator.display.value;
+	if(val1.charAt(val1.length-1) == '0' && (val1.length) < 2){
+		document.calculator.display.value = "8";
+		document.calculator.display.style.textAlign="right";
+	}
+	else{
+		document.calculator.display.value +="8";
+		document.calculator.display.style.textAlign="right";
+	}
+}
+function btnnine(){
+	val1 = document.calculator.display.value;
+	if(val1.charAt(val1.length-1) == '0' && (val1.length) < 2){
+		document.calculator.display.value = "9";
+		document.calculator.display.style.textAlign="right";
+	}
+	else{
+		document.calculator.display.value +="9";
+		document.calculator.display.style.textAlign="right";
+	}
+}
+//btn backspace pressed
+function btnBS(){
+	val1 = val1.slice(0,val1.length-1);
+	var result = document.getElementById('disp');
+    result.value = val1;
+}
+//btn radical pressed
+function btnRadical(){
+	val1 = document.calculator.display.value;
+	var result = document.getElementById('disp');
+
+	if(val1.length == 0){
+
+	}else{
+		result.value =  Math.sqrt(parseInt(val1));	
+	}
+	
+}
+//btn equal pressed
+function btnequal(){
+	var resultset = eval(document.calculator.display.value);
+		
+     
+		if (isNaN(resultset)) {
+			document.calculator.display.value = "Math Error !";
+		}else if(resultset == 'Infinity'){
+			document.calculator.display.value = "Can not be divide by zero";
+		}
+		else{
+			document.calculator.display.value = resultset;
+		}
+				
+}
+</script> 
+</center>
+</body>
+</html>
